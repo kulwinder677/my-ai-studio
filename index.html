@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MY AI STUDIO</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#0b1020;
+ color:white;
+ padding:24px 16px;
+}
+main{
+ max-width:680px;
+ margin:35px auto;
+ text-align:center;
+}
+h1{font-size:36px;margin-bottom:8px}
+h1 span{color:#9b8cff}
+p{color:#b7bed0}
+textarea,select{
+ width:100%;
+ background:#192239;
+ color:white;
+ border:1px solid #394563;
+ border-radius:14px;
+ padding:15px;
+ font-size:16px;
+}
+textarea{height:135px;resize:vertical}
+label{display:block;text-align:left;margin:20px 0 8px}
+button{
+ width:100%;
+ padding:17px;
+ margin-top:20px;
+ border:0;
+ border-radius:14px;
+ background:linear-gradient(90deg,#7657ff,#d04aff);
+ color:white;
+ font-size:17px;
+ font-weight:bold;
+}
+.preview{
+ margin-top:26px;
+ padding:55px 15px;
+ border:2px dashed #394563;
+ border-radius:18px;
+ color:#b7bed0;
+}
+small{color:#9ca8bf}
+</style>
+</head>
+<body>
+<main>
+<h1>✨ MY <span>AI STUDIO</span></h1>
+<p>Create stunning AI artwork from your imagination</p>
+
+<label for="prompt">Describe your image</label>
+<textarea id="prompt" placeholder="A cute 3D cartoon ship sailing across a beautiful ocean..."></textarea>
+
+<label for="style">Image Style</label>
+<select id="style">
+<option>3D Cartoon</option>
+<option>Photorealistic</option>
+<option>Anime</option>
+<option>Digital Art</option>
+<option>Kids Encyclopedia</option>
+</select>
+
+<label for="ratio">Aspect Ratio</label>
+<select id="ratio">
+<option>1:1 Square</option>
+<option>3:4 Portrait</option>
+<option>9:16 Vertical</option>
+<option>16:9 Landscape</option>
+</select>
+
+<button onclick="showMessage()">✨ Generate Image</button>
+
+<div class="preview" id="preview">
+Your generated image will appear here
+</div>
+
+<p><small>AI generation backend coming next.</small></p>
+</main>
+
+<script>
+function showMessage(){
+ const prompt=document.getElementById("prompt").value.trim();
+ const preview=document.getElementById("preview");
+ if(!prompt){
+   preview.textContent="Please enter an image prompt first.";
+   return;
+ }
+ preview.textContent="Website ready! Connect an AI image generation backend to create images.";
+}
+</script>
+</body>
+</html>
