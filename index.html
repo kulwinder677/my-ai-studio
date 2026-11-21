@@ -22,7 +22,7 @@ main{
 h1{font-size:36px;margin-bottom:8px}
 h1 span{color:#9b8cff}
 p{color:#b7bed0}
-textarea,select{
+textarea,select,input{
  width:100%;
  background:#192239;
  color:white;
@@ -62,6 +62,21 @@ small{color:#9ca8bf}
 <label for="prompt">Describe your image</label>
 <textarea id="prompt" placeholder="A cute 3D cartoon ship sailing across a beautiful ocean..."></textarea>
 
+<label for="title">Main Title</label>
+<input id="title" type="text" placeholder="Fire Truck">
+
+<label for="fact1">Educational Fact 1</label>
+<input id="fact1" type="text" placeholder="Fire trucks help firefighters">
+
+<label for="fact2">Educational Fact 2</label>
+<input id="fact2" type="text" placeholder="They carry water and ladders">
+
+<label for="fact3">Educational Fact 3 (Optional)</label>
+<input id="fact3" type="text" placeholder="They respond to emergencies">
+
+<label for="footer">Footer Text (Optional)</label>
+<input id="footer" type="text" placeholder="LEARN • EXPLORE • DISCOVER">
+
 <label for="style">Image Style</label>
 <select id="style">
 <option>3D Cartoon</option>
@@ -93,7 +108,14 @@ Your generated image will appear here
 async function showMessage() {
   const prompt = document.getElementById("prompt").value.trim();
   const style = document.getElementById("style").value;
-  const preview = document.getElementById("preview");
+ const ratio = document.getElementById("ratio").value;
+const title = document.getElementById("title").value.trim();
+const fact1 = document.getElementById("fact1").value.trim();
+const fact2 = document.getElementById("fact2").value.trim();
+const fact3 = document.getElementById("fact3").value.trim();
+const footer = document.getElementById("footer").value.trim();
+
+ const preview = document.getElementById("preview");
   const button = document.querySelector("button");
 
   if (!prompt) {
@@ -113,10 +135,18 @@ async function showMessage() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          prompt: prompt,
-          style: style
-        })
+        
+body: JSON.stringify({
+  prompt: prompt,
+  style: style,
+  ratio: ratio,
+  title: title,
+  fact1: fact1,
+  fact2: fact2,
+  fact3: fact3,
+  footer: footer
+})
+
       }
     );
 
